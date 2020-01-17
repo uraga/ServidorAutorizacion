@@ -1,11 +1,22 @@
 package server.remote;
 
 import java.rmi.Naming;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 import server.data.Usuario;
 
-public class ServidorAutorizacion implements IServidorAutorizacion{
+public class ServidorAutorizacion extends UnicastRemoteObject implements IServidorAutorizacion{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected ServidorAutorizacion() throws RemoteException {
+		super();
+	}
 
 	private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 	
