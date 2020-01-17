@@ -7,6 +7,6 @@ public interface IServidorAutorizacion extends Remote{
 	
 	public void registrar(String email, String contrasenya) throws RemoteException;
 	
-	public void login(String email, String contrasenya) throws RemoteException;
+	public boolean login(String email, String contrasenya) throws RemoteException;
 
 }

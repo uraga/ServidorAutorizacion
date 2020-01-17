@@ -36,18 +36,22 @@ public class ServidorAutorizacion extends UnicastRemoteObject implements IServid
 	}
 
 	@Override
-	public void login(String email, String contrasenya) {
+	public boolean login(String email, String contrasenya) {
 		for (Usuario u : usuarios) {
 			if (u.getEmail().equals(email)) {
 				if (u.getContrasenya().equals(contrasenya)) {
 					System.out.println("Login correcto, ¡¡¡¡¡¡Bienvenido!!!!!!");
+					return true;
 				} else {
 					System.out.println("Contraseña incorrecta");
+					return false;
 				}
 			} else {
 				System.out.println("No existe ningún usuario con ese email");
+				return false;
 			}
 		}
+		return false;
 	}
 	
 	public static void main(String[] args) {
