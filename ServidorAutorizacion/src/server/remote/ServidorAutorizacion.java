@@ -13,10 +13,11 @@ public class ServidorAutorizacion extends UnicastRemoteObject implements IServid
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+	private ArrayList<Usuario> usuarios;
 
 	protected ServidorAutorizacion() throws RemoteException {
 		super();
+		usuarios = new ArrayList<Usuario>();
 		Usuario u1 = new Usuario();
 		u1.setEmail("j.uraga@opendeusto.es"); u1.setContrasenya("12345");
 		Usuario u2 = new Usuario();
@@ -68,11 +69,9 @@ public class ServidorAutorizacion extends UnicastRemoteObject implements IServid
 					System.out.println("Contraseña incorrecta");
 					return false;
 				}
-			} else {
-				System.out.println("No existe ningún usuario con ese email");
-				return false;
-			}
+			} 
 		}
+		System.out.println("No existe ningún usuario con ese email");
 		return false;
 	}
 	
